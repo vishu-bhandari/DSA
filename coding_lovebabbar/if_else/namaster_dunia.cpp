@@ -46,7 +46,7 @@ int main(){
 // cout<<first<<endl;
 
 
-int a = 0;
-cout<< !a<<endl;
+// int a = 0;
+// cout<< !a<<endl;
 
 }

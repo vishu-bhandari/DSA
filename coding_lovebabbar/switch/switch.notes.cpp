@@ -27,7 +27,16 @@ int main(){
         amount=amount%20;
         cout<<"the no. of 20 rupee notes are "<<c<<endl;
        
+    case 4:
+        d=amount/10;
+        amount=amount%10;
+        cout<<"the no. of 10 rupee notes are"<<d<<endl;
     
+    case 5:
+    e=amount/1;
+    amount=amount%1;
+    cout<<"the no of 1 rupee note are "<<e<<endl;
+
     default:
         break;
     }

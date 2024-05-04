@@ -13,19 +13,23 @@ int main(){
     // declare
 
     int num[15];
+    int nums[10];
 
     // accessing an array 
     cout<<"the value of num at 14 is "<<num[14]<<endl;
+    cout<<"the value of nums at 10 is "<<num[10]<<endl;
 
     // cout<<"value of num at 20 is "<<num[20]<<endl;
 
 
     // initialising an array 
    int second[3]={5,7,11};
+   int first[4]={1,2,3,4};
 
 
     //accessing an element 
     cout<<"the value at second[3] is "<<second[2]<<endl;
+   
 
 
     int third[15]={2,7};
@@ -38,6 +42,7 @@ int main(){
     //     cout<<third[i]<<" ";
     // }
     printArray(third,15);
+    cout<<"size of third is "<<sizeof(third)/sizeof(int);
 
     cout<<endl;
 
@@ -46,7 +51,7 @@ int main(){
     // int nb=10;
     // for(int i=0;i<nb;i++){
     //     cout<<fourth[i]<<" ";
-    // }
+    // }}}}
     printArray(fourth,10);
     cout<<endl;
 

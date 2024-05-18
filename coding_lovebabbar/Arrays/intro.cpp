@@ -51,7 +51,7 @@ int main(){
     // int nb=10;
     // for(int i=0;i<nb;i++){
     //     cout<<fourth[i]<<" ";
-    // }}}}}}}}}}
+                // }}}}}}}}}}
     printArray(fourth,10);
     cout<<endl;
 

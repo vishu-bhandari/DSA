@@ -2,6 +2,16 @@
 using namespace std;
 
 int main(){
+    cout<<"Namaste dunia"<<endl;
+
+    return 0;
+}
+
+
+// #include<iostream>
+// using namespace std;
+
+// int main(){
 //    cout<< "Namaste  Dunia  "<< endl;
 
 //    int a =123;
@@ -49,4 +59,4 @@ int main(){
 // int a = 0;
 // cout<< !a<<endl;
 
-}
+// }

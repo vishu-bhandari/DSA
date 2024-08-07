@@ -2,7 +2,53 @@
 using namespace std;
 
 int main(){
-    cout<<"Namaste dunia"<<endl;
+    cout<<"My name is vishu "<<endl;
+    cout<<"my name is vishu\n";
+
+
+    int a =1234;
+    cout<<"a:" <<a<<endl;
+
+    char b='v';
+    cout<<b<<endl;
+
+    bool bl=true;
+    cout<<bl<<endl;
+
+    int size=sizeof(b);
+    cout<<"Size of b is "<<size<<endl;
+
+    int c='c';
+    cout<<c<<endl;
+
+    char ch=98;
+    cout<<ch<<endl;
+
+    char ch1=123456;
+    cout<<ch1<<endl;
+
+    unsigned int ab=-1234;
+    cout<<ab<<endl;
+
+    double ac=2.0/5;
+    cout<<ac<<endl;
+
+    int an=2;
+    int bn=3;
+
+    bool first=(an==bn);
+    cout<<first<<endl;
+
+    bool second=(an>=bn);
+    cout<<second<<endl;
+
+    bool third=(an<=bn);
+    cout<<third<<endl;
+
+    int n=21;
+    cout<<!n<<endl;
+    
+
 
     return 0;
 }

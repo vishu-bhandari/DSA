@@ -1,2 +1,3 @@
-char ch= 98;
-cout<<ch<<endl;
+  else if(a.isNan()){
+        cout<<"a is not a number "<<endl;
+    }

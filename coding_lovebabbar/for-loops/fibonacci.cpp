@@ -1,57 +1,39 @@
 #include <iostream>
 using namespace std;
 
-int main(){
+int main()
+{
 
+    int n;
+    cout << "enter the value of n" << endl;
+    cin >> n;
 
-int n;
-cout << "enter the value of n" << endl;
-cin >> n;
-
-int a=0;
-int b=1;
-cout<< a <<" "<< b <<" ";
-for(int i=1;i<=n;i++){
-    int sum=a+b;
-    cout<<sum<<" ";
-    a=b;
-    b=sum;
+    int a = 0, b = 1;
+    int sum;
+    cout<<a<<" "<<b<<" ";
+    for (int i = 1; i <= n; i++)
+    {
+        sum = a + b;
+        cout << sum << " ";
+        a = b;
+        b = sum;
+    }
 }
 
-}
+// int main(){
 
+//     int n=10;
 
+//     int a=0;
+//     int b=1;
+//     cout<<a<<" "<<b<<" ";
+//     for(int i=1;i<=n;i++){
+//         int nextnum=a+b;
+//         cout<<nextnum<<" ";
 
+//         a=b;
+//         b= nextnum;
 
+//     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // int main(){
-
-    //     int n=10;
-
-    //     int a=0;
-    //     int b=1;
-    //     cout<<a<<" "<<b<<" ";
-    //     for(int i=1;i<=n;i++){
-    //         int nextnum=a+b;
-    //         cout<<nextnum<<" ";
-
-    //         a=b;
-    //         b= nextnum;
-
-    //     }
-
-    // }
+// }

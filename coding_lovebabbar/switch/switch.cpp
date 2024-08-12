@@ -12,7 +12,7 @@ int main(){
 
         case 'a':cout<<"second"<<endl;
         cout<<"this is a character ";
-        break;
+        continue;
 
         default:cout<<"It is default case";
         break;

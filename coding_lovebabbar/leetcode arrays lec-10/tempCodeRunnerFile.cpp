@@ -1,7 +1,3 @@
-#include<iostream>
-using namespace std;
-
-
 void PrintArray(int arr[],int size){
     for(int i=0;i<size;i++){
         cout<<arr[i]<<" ";
@@ -23,24 +19,3 @@ void Sort(int arr[],int n){
     }
    }
    PrintArray(arr, n);
-}
-
-
-int main(){
-
-    int n;
-    cout<<"enter the value of n"<<endl;
-    cin>>n;
-
-    int arr[100];
-    cout<<"input the array : ";
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
-    }
-    cout<<endl;
-
-    Sort(arr,n);
-
-
-    return 0;
-}

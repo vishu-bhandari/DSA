@@ -3,19 +3,7 @@ using namespace std;
 
 bool UniqueNum(int arr[], int size)
 {
-    int count = 0;
-    for (int i = 0; i < size; i++)
-    {
-       for(int j=0;j<size;j++){
-        if(arr[i]^arr[j]==0){
-            count++;
-        }
-       }
-       if(count ==1){
-        return 1;
-       }
-    }
-    return 0;
+   
 }
 
 int main()

@@ -1,1 +1,1 @@
-even
+ cout<<"enter the array "<<endl;

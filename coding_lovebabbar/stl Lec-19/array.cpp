@@ -19,5 +19,4 @@ int main(){
     cout<<"first element"<<a.front()<<endl;
     cout<<"last element "<<a.back()<<endl;
 
-    
 }

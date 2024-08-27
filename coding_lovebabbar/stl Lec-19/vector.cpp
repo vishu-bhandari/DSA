@@ -6,19 +6,23 @@ int main()
 {
 
     vector<int> v;
-    vector<int> a(5,1);
+    vector<int> a(10,1);
 
 
     vector<int> last(a);
 
-    
+    cout<<"printing last  vector"<<endl;
+    for(int i:last){
+        cout<<i<<" ";
+    }cout<<endl;
 
-    cout<<"print last"<<endl;
+    cout<<"printing a with 1"<<endl;
     for(int i:a){
         cout<<i<<" ";
     }
+    cout<<endl;
 
-    cout << "capacity" << v.capacity() << endl;
+    cout << "capacity " << v.capacity() << endl;
 
     v.push_back(1);
     cout << "capacity" << v.capacity() << endl;
@@ -51,8 +55,10 @@ int main()
     }cout<<endl;
     
     cout<<"before clear size"<<v.size()<<endl;
+    cout<<"before clear cap"<<v.capacity()<<endl;
     v.clear();
     cout<<"after clear size"<<v.size()<<endl;
+    cout<<"after clear cap"<<v.capacity()<<endl;
 
 
     return 0;

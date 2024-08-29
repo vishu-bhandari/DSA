@@ -14,6 +14,7 @@ int main(){
     cout<<"top element "<<s.top()<<endl;
 
     s.pop();
+    
 
     cout<<"top element "<<s.top()<<endl;
 

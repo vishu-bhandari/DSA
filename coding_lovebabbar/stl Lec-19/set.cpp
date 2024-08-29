@@ -19,9 +19,11 @@ int main(){
     s.insert(0);
     s.insert(0);
 
+    cout<<"printing s "<<endl;
     for(auto i:s){
         cout<<i<<endl;
     }cout<<endl;
+
     s.erase(s.begin());
     for(auto i:s){
         cout<<i<<endl;
@@ -29,6 +31,7 @@ int main(){
 
     cout<<"5 is present or not " <<s.count(5)<<endl;
     cout<<"is - 5 present or not "<<s.count(-5)<<endl;
+    cout<<"is 6 present or not "<<s.count(6)<<endl;
 
     set<int>::iterator itr= s.find(5); 
     

@@ -34,6 +34,7 @@ int main(){
 
     vector<int> ans=reverse(v);
     
+    cout<<"printing reverse array "<<endl;
     print(ans);
 
 

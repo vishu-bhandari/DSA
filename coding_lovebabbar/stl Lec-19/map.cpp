@@ -10,20 +10,24 @@ int main(){
     m[13]="vb";
     m[2]="bhandari";
 
-    // m.insert({5,"vijeta"});
+    m.insert(std::make_pair(5, "vijeta"));
+
 
     cout<<"before earse "<<endl;
     for(auto i:m){
         cout<<i.first<<" " <<i.second<<endl;
     }
+    cout<<endl;
 
     cout<<"finding 13 ->"<<m.count(13)<<endl;
 
     // m.erase(13);
+    cout<<endl;
     cout<<"after erase "<<endl;
     for(auto i:m){
         cout<<i.first<<" " <<i.second<<endl;
-    } 
+    }cout<<endl;
+
     cout<<"after find";
     auto it=m.find(5);
     for(auto i=it;i!=m.end();i++){

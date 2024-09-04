@@ -1,53 +1,77 @@
 #include<iostream>
 using namespace std;
 
-char tolowercase(char ch){
-    if(ch>='a' && ch<='z'){
-        return ch;
-    }
-    else{
-        char temp=ch-'A'+'a';
-        return temp;
-    }
-}
 
-bool checkPlaindrome(char a[],int n){
+bool checkPalindrome(char a[],int n){
     int s=0;
     int e=n-1;
 
     while(s<=e){
-        if(tolowercase(a[s])!=tolowercase(a[e])){
+        if(a[s]!=a[e]){
             return 0;
-        }
-        else{
+        }else{
             s++;
             e--;
         }
     }
     return 1;
+}
+
+void reverse(char ch[],int n){
+    int s=0;
+    int e=n-1;
+
+    while(s<=e){
+        swap(ch[s++],ch[e--]);
+    }
 
 }
-int getlength(char name[]){
-    int count=0;
-    for(int i=0;name[i]!='\0';i++){
-        count++;
+
+
+int StringLen(char ch[],int n){
+    int count =0;
+    for(int i=0;i<n;i++){
+        if(ch[i]=='\0'){
+            return count;
+        }else{
+            count++;
+        }
     }
     return count;
+  
+}
+
+void printArray(char ch[],int n){
+    for(int i=0;i<n;i++){
+        cout<<ch[i];
+    }
 }
 
 int main(){
-    char name[20];
-    cout<<"enter the name:"<<endl;
-    cin>>name;
-
-    int len=getlength(name);
-    cout<<"the length is "<<len<<endl;
-
-    cout<<"palindrome or not :"<<checkPlaindrome(name,len)<<endl;
-
-    cout<<"character is "<<tolowercase('b')<<endl;
-    cout<<"characteris "<<tolowercase('C')<<endl;
 
 
+    char ch[20];
+
+    cout<<"Enter the string"<<endl;
+    cin>>ch;
+
+
+    int answer=StringLen(ch,20);
+    cout<<answer<<endl;
+
+    cout<<"The reversed String is "<<endl;
+    reverse(ch,answer);
+
+    printArray(ch,answer);
+    cout<<endl;
+
+
+    bool palinornot=checkPalindrome(ch,answer);
+    if(palinornot){
+        cout<<"its a palindrome"<<endl;
+    }else{
+        cout<<"oops: not a palindrome";
+    }
+    
     return 0;
 }

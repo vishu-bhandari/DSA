@@ -1,0 +1,1 @@
+ if(toLowerCase(a[s]) != toLowerCase(a[e])){

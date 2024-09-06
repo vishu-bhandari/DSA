@@ -48,16 +48,17 @@ bool Permutation(string s1, string s2)
     {
 
         char newChar = s2[i];
-        int index = s2[i] - 'a';
+        int index = newChar - 'a';
         count2[index]++;
         char oldChar = s2[i - windowSize];
-        index = s2[oldChar] - 'a';
+        index = oldChar - 'a';
         count2[index]--;
 
         if (checkEqual(arr1, count2))
         {
             return 1;
         }
+        i++;
        
     }
     return 0;

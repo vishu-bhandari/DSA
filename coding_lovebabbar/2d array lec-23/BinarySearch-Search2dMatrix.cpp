@@ -9,7 +9,7 @@ bool Search(int arr[][3], int nrow, int mcol, int key)
 
     int mid = s + (e - s) / 2;
 
-    while (s < e)
+    while (s <= e)
     {
         int element=arr[mid/mcol][mid%mcol];
 

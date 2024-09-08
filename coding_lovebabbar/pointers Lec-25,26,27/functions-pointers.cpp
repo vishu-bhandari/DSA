@@ -26,14 +26,14 @@ int main(){
     int value=5;
     int *p=&value;
 
-    // print(p);
+    print(p);
     cout<<"before "<<*p<<endl;
     update(p);
     cout<<"after "<<*p<<endl;
     
-    int arr[5]={1,2,3,4,5};
+    int arr[10]={1,2,3,4,5,7,8,8,9,0};
 
-    cout<<"sum is" << getsum(arr+2,3)<<endl;;
+    cout<<"sum is" << getsum(arr+3,3)<<endl;;
 
     return 0;
 }

@@ -1,9 +1,9 @@
 #include <iostream>
 using namespace std;
 
-
-inline int getmax(int& a,int& b){
-    return (a>b)?a:b;
+inline int getmax(int &a, int &b)
+{
+    return (a > b) ? a : b;
 }
 
 int main()
@@ -16,12 +16,12 @@ int main()
     //     ans=b;
     // }
     // is purri if else ko humnai tertiary mai kr lia
-    ans = getmax(a,b);
-    cout<<ans<<endl;
+    ans = getmax(a, b);
+    cout << ans << endl;
     a = a + 3;
     b = b + 1;
-    ans = getmax(a,b);
-    cout<<ans<<endl;
+    ans = getmax(a, b);
+    cout << ans << endl;
 
     return 0;
 }

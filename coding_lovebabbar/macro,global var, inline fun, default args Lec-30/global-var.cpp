@@ -6,7 +6,7 @@ int score=15;
 
 void a(int &i)
 {
-    cout<<score<< " in a"<<endl;
+    cout<<score++<< " in a"<<endl;
     cout << i << endl;
     // b(i);
 }
@@ -18,7 +18,7 @@ void b(int &i)
 
 int main()
 {
-     cout<<score<< " in main"<<endl;
+     cout<<score++<< " in main"<<endl;
     int i = 5;
     a(i);
     b(i);

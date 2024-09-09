@@ -13,9 +13,11 @@ int getsum(int *arr, int n){
 int main(){
     
     int n;
+    cout<<"enter n"<<endl;
     cin>>n;
     int *arr=new int[n];
 
+    cout<<"enter the array"<<endl;
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
@@ -32,6 +34,7 @@ int main(){
     while(true){
         int *ptr=new int;
     }
+       
 
     return 0;
 

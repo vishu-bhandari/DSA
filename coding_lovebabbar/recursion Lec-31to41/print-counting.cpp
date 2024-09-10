@@ -1,25 +1,27 @@
 #include<iostream>
 using namespace std;
 
-void count(int n){
-    // base case 
+void Count(int n){
+
     if(n==0){
         return ;
     }
+
+    Count(n-1);
     cout<<n<<" ";
-    
-    // recursive relation 
-    count(n-1);
-    cout<<endl;
-    cout<<n<<" ";
-    
+
+
 }
+
 
 int main(){
 
     int n;
+    cout<<"Enter the value of n"<<endl;
     cin>>n;
-    count(n);
+
+    Count(n);
+
 
 
     return 0;

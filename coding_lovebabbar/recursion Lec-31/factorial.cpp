@@ -1,27 +1,24 @@
 #include<iostream>
 using namespace std;
 
-int factorial(int n){
-    // base case 
-    
-    if(n==0){
-       return  1;
-    }
-    
-    
-    int choti=factorial(n-1);
-    int badi=n*choti;
 
-    return badi;
-    // return n*factorial(n-1);
+int fact(int n){
+    if(n==0){
+        return 1;
+    }
+
+    return n*fact(n-1);
 }
 
+
 int main(){
+
     int n;
+    cout<<"enter the value of n"<<endl;
     cin>>n;
 
-    int ans=factorial(n);
-    cout<<ans<<endl;
+    cout<<"factorial of a number " << n<< " is" <<endl;
+    cout<<fact(n)<<endl;
 
 
     return 0;

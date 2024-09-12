@@ -1,38 +1,36 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
+bool checkPalindrome(string &str, int i, int j)
+{
 
-bool checkpalindrome(string str,int i,int j){
+    if (i > j)
+        return true;
 
-    // base case 
-    if(i>j){
-        return true ;
-    }
-
-    if(str[i]!=str[j]){
+    if (str[i] != str[j])
         return false;
-    }else{
-        // recursive call
-        return checkpalindrome(str,i+1,j-1);
-        
+    else
+    {
+        return checkPalindrome(str, i + 1, j - 1);
     }
-
 }
 
-int main(){
+int main()
+{
 
-    string name="mom";
-    cout<<endl;
+    string name = "noon";
+    cout << endl;
 
-    bool isplaindrome=checkpalindrome(name,0,name.length()-1);
+    bool isPalindrome = checkPalindrome(name, 0, name.length() - 1);
 
-    if(isplaindrome){
-        cout<<"it is a palindrome"<<endl;
-
-    }else{
-        cout<<"it is not a palindrome"<<endl;
-    }cout<<endl;
-
+    if (isPalindrome)
+    {
+        cout << "badiya hai bhaiyaaa" << endl;
+    }
+    else
+    {
+        cout << "areee nahi  hai palin ka drome bhaiyaa" << endl<<endl;
+    }
 
     return 0;
 }

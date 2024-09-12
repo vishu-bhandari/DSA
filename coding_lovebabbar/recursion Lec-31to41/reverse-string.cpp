@@ -1,28 +1,27 @@
 #include<iostream>
 using namespace std;
 
-void reverse(string& str,int i , int j){
 
-    cout<<"call received for " <<str<<endl;
+void reverse(string &str,int i,int j){
 
-    // base case  
+    cout<<"call received for"<<str<<endl<<endl;
+    //base case 
+
     if(i>j){
-        return;
+        return ;
     }
 
     swap(str[i],str[j]);
-    i++;
-    j--;
-    return reverse(str,i,j);
-
+    reverse(str,++i,--j);
 }
 
-int main(){
 
+int main(){
+    
     string name="vishu";
 
     reverse(name,0,name.length()-1);
-
+    
     cout<<name<<endl;
 
 

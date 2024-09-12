@@ -1,48 +1,56 @@
 #include <iostream>
 using namespace std;
 
-void print(int *arr,int size){
-    cout<<"size of array is "<<size<<endl;
-    for(int i=0;i<size;i++){
-        cout<<arr[i]<<" ";
+bool linearSearch(int arr[], int n, int key)
+{
 
-    }cout<<endl;
-}
-
-bool linearsearch(int *arr,int size,int key){
-    print(arr,size);
-    //base case 
-    if(size==0){
-        return false;
+    // base case
+    if (n == 0)
+    {
+        return 0;
     }
 
-    //recursive call
-    if(arr[0]==key){
-        return true;
-    }else{
-       return linearsearch(arr+1,size-1,key);
+    if (arr[0] == key)
+    {
+        return 1;
     }
-    return 0;
+    else
+    {
+        bool present = linearSearch(arr + 1, n - 1, key);
+        return present;
+    }
 }
 
 int main()
 {
-    int arr[5] = {3, 5, 1, 2, 6};
-    int size = 5;
-    int key = 8;
-    bool ans = linearsearch(arr, size, key);
+
+    int arr[100];
+
+    int n;
+    cout << "enter the size of array " << endl;
+    cin >> n;
+
+    cout << "enter the array " << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    int key;
+    cout << "enter the key you want to find" << endl;
+
+    cin >> key;
+
+    bool ans = linearSearch(arr, n, key);
+
     if (ans)
     {
-        cout << "present in the array" << endl;
-        ;
+        cout << "present hai bhaiya " << endl;
     }
     else
     {
-        cout << "absent in the array" << endl;
-        ;
+        cout << "ghar jao kuch nai hai yha " << endl;
     }
 
     return 0;
-
-   
 }

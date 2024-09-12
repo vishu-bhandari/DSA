@@ -1,33 +1,50 @@
 #include<iostream>
 using namespace std;
 
-bool issorted(int *arr,int size){
+bool isSorted(int arr[],int n){
+    
     //base case 
-    if(size==0|| size==1){
-        return 1;
+
+    if(n==0 || n==1){
+        return true;
     }
 
-    if(arr[0]>arr[1]){
-        return false;
+    for(int i=0;i<n;i++){
+        if(arr[i]>arr[i+1]){
+            return false;
+        }else{
+            bool answer=isSorted(arr+1,n-1);
+            return answer;
+        }
     }
-    else{
-        bool remainingpart=issorted(arr+1,size-1);
-    return remainingpart;
-    }
+    return 0;
+    
 }
+
 
 int main(){
 
-    int arr[5]={2,4,6,8,9};
-    int size=5;
-
-    bool ans=issorted(arr,size);
-
-    if(ans){
-        cout<<"array is sorted"<<endl;
-    }else{
-        cout<<"array is not sorted"<<endl;
+    int arr[100];
+    int n;
+    cout<<"enter the szie "<<endl;
+    cin>>n;
+    cout<<"enter the array"<<endl;
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
     }
+    cout<<"your array is "<<endl;
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    bool ans=isSorted(arr,n);
+    if(ans){
+        cout<<"array is mast "<<endl;
+    }else{
+        cout<<"nahi yaar sorted kaha h ye array "<<endl;
+    }
+
+
 
     return 0;
 }

@@ -1,28 +1,45 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-int getsum(int arr[],int size){
-    //base case 
-    if(size==0){
+int isSum(int *arr, int n)
+{
+
+    if (n == 0)
+    {
         return 0;
     }
-    if(size==1){
-        return arr[0];
-    }
-    int remainingpart=getsum(arr+1,size-1);
-    int sum=arr[0] + remainingpart;
 
+    int sum=arr[0];
+
+    sum=sum+isSum(arr+1,n-1);
     return sum;
+
+    
+
+
 }
 
-int main(){
+int main()
+{
 
-    int arr[5]={2,4,9,9,9};
+    int arr[100];
+    int n;
+    cout << "enter the szie " << endl;
+    cin >> n;
+    cout << "enter the array" << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    cout << "your array is " << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    int ans = isSum(arr, n);
 
-    int size=5;
-    int sum=getsum(arr,size);
-    cout<<"sum is "<<sum <<endl;
+    cout << ans << endl;
 
     return 0;
-
 }

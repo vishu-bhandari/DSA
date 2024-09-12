@@ -1,2 +1,1 @@
-delete []first;
-    delete []second;
+ans=n/10;

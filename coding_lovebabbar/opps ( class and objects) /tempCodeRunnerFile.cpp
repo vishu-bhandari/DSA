@@ -1,4 +1,15 @@
-    hero a;
+Hero(int health)
+    {
+        this->health = health;
 
-    // dynamically 
-    hero *b=new hero;
+        cout << "this->health " << this->health << endl;
+        cout << "this " << this << endl;
+        cout << "&health " << &health << endl;
+    }
+
+    Hero(int health, char level)
+    {
+        this->level = level;
+
+        this->health = health;
+    }

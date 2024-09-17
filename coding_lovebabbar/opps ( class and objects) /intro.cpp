@@ -1,24 +1,61 @@
 #include <iostream>
-// #include "hero.cpp"
+#include "hero.cpp"
 using namespace std;
 
-class hero
+class Hero
 {
-
     // properties
+
+private:
     int health;
 
 public:
     char *name;
     char level;
-    static int timetocomplete;
+
+    // default  constructor
+    Hero()
+    {
+        cout << "Default Constructor called" << endl;
+        name = new char[100];
+    }
+
+    // parametrised constructor
+    Hero(int health)
+    {
+        this->health = health;
+
+        cout << "this->health " << this->health << endl;
+        cout << "this " << this << endl;
+        cout << "&health " << &health << endl;
+    }
+
+    Hero(int health, char level)
+    {
+        this->level = level;
+
+        this->health = health;
+    }
+
+    // copy constructor
+    Hero(Hero &temp)
+
+    {
+        char *ch = new char[strlen(temp.name) + 1];
+        strcpy(ch, temp.name);
+        this->name = ch;
+
+        cout << "copy constructor called" << endl;
+        this->health = temp.health;
+        this->level = temp.level;
+    }
 
     void print()
     {
         cout << endl;
-        cout << "name: " << this->name << endl;
-        cout << "health " << this->health << endl;
-        cout << "level " << this->level << endl;
+        cout << "Name is :" << this->name << " , ";
+        cout << "health is:" << this->health << " , ";
+        cout << "level is:" << this->level << " , ";
         cout << endl;
     }
 
@@ -38,154 +75,123 @@ public:
     {
         level = ch;
     }
+
     void setName(char name[])
     {
         strcpy(this->name, name);
     }
 
-    hero()
-    {
-        cout << "simple constructor called" << endl;
-        name = new char[100];
-    }
-
-    // parametrised constructor
-    hero(int health)
-    {
-        cout << "this " << this << endl;
-        this->health = health;
-    }
-    hero(int health, char level)
-    {
-        this->level = level;
-        this->health = health;
-    }
-
-    // copy constructor
-    hero(hero &temp)
-    {
-
-        char *ch = new char[strlen(temp.name) + 1];
-        strcpy(ch, temp.name);
-        this->name = ch;
-        this->health = temp.health;
-        this->level = temp.level;
-    }
-    static int random(){
-        return timetocomplete;
-    }
-    // destructor called
-    ~hero()
-    {
-        cout << "destructor called" <<endl;;
+    //Destructor 
+    ~Hero(){
+        cout<<"destructor called ho chukka hia mast "<<endl;
     }
 };
 
-// intialise static outside the class 
-int hero::timetocomplete=5;
-
-
 int main()
+
 {
-    cout<<hero::timetocomplete<<endl;
-    cout<<hero::random()<<endl;
+    //static
+    Hero a;
 
-    hero vishu;
-    cout<<vishu.timetocomplete<<endl;
-
-    hero vish;
-    vish.timetocomplete=10;
-    cout<<vishu.timetocomplete<<endl;
-    cout<<vish.timetocomplete<<endl;
+    Hero *b=new Hero;
 
 
 
 
 
 
-    // // static
-    // hero vishu;
 
-    // // dynamic
-    // hero *vish=new hero();
-    // // manually destructor called
-    // delete vish;
 
-    // hero vishu1;
-    // vishu1.setHealth(12);
-    // vishu1.setLevel('D');
-    // char name[7]="babbar";
-    // vishu1.setName(name);
 
-    // // vishu1.print();
 
-    // // use default copy constructor
-    // hero vishu2(vishu1);
-    // // vishu2.print();
 
-    // vishu1.name[0]='T';
-    // vishu1.print();
 
-    // vishu2.print();
 
-    // vishu1=vishu2;
-    // vishu1.print();
-    // vishu2.print();
 
-    // hero vishu(70, 'c');
-    // vishu.print();
+    // Hero hero1;
+    // hero1.setHealth(12);
+    // hero1.setLevel('D');
+    // char name[7] = "babbar";
+    // hero1.setName(name);
 
-    // // copy constructor called
-    // hero bhandari(vishu);
-    // bhandari.print();
+    // hero1.print();
 
-    // // object created statically
-    // hero vishu(10);
-    // cout<<"address of vishu "<<&vishu<<endl;
+    // // use the default copy constructor
+
+    // Hero hero2(hero1);
+    // hero2.print();
+
+    // hero1.name[0] = 'T';
+    // hero1.setHealth(13);
+    // hero1.print();
+
+    // hero2.print();
+
+    // hero1=hero2;
+    // hero1.print();
+    // hero2.print();
+
+    // Hero suresh(70, 'c');
+    // // suresh.setHealth(90);
+    // // suresh.setLevel('C');
+    // suresh.print();
+
+    // Hero R(suresh);
+    // R.print();
+
+    // Hero Vi(R);
+    // Vi.print();
+
+    // object created statically
+
+    // Hero vishu(10);
+    // cout << "address of vishu" << &vishu << endl;
     // vishu.getHealth();
     // vishu.print();
 
-    // // dynamically
-    // hero *vish = new hero(11);
-    // vish->print();
+    // Hero *h = new Hero(11);
 
-    // hero temp(22,'b');
+    // h->print();
+
+    // Hero temp(22,'B');
     // temp.print();
 
-    // static allocation
-    // hero vishu;
-    // vishu.setHealth(300);
-    // vishu.setLevel('V');
+    // creation of object
+    // Hero h1;
+    // Hero vishu;
+    // hero h2;
 
-    // cout << "level is " << vishu.level << endl;
-    // cout << "health is " << vishu.getHealth() << endl;
+    // cout << "size: " << sizeof(h1) << endl;
+    // cout << "size of ch:" << sizeof(h1) << endl;
 
-    // // dynamically
-    // hero *vish = new hero;
-    // vish->setLevel('A');
-    // vish->setHealth(100);
-    // cout << "level is " << (*vish).level << endl;
-    // cout << "health is " << (*vish).getHealth() << endl;
+    // cout << "size of " << sizeof(h2) << endl;
 
-    // cout << "level is " << vish->level << endl;
-    // cout << "health is " << vish->getHealth() << endl;
-
-    // // creation of object
-    // hero vishu;
-
-    // cout<<"size of vishu is :"<<sizeof(vishu)<<endl;
-
-    // // getting heath using gethealth
-    // cout<<"vishu health is "<<vishu.getHealth()<<endl;
-
-    // // setting health using set health
-    // vishu.setHealth(200);
-
-    // // vishu.health=100;
+    // cout<<"vishu ki health kitni hai "<<vishu.getHealth()<<endl;
+    // //use setter
+    // vishu.setHealth(70);
+    // // vishu.health=80;
     // vishu.level='A';
+    // //accessing the properties [ use dot operator ]
 
-    // cout<<"health is: "<<vishu.getHealth()<<endl;
-    // cout<<"level is: "<<vishu.level<<endl;
+    // cout<<"health is :"<<vishu.getHealth()<<endl;
+    // cout<<"level is : "<<vishu.level<<endl;
+
+    // cout <<"size of vishu is "<<sizeof(vishu)<<endl;
+
+    // static allocation
+    //  Hero a;
+
+    // cout<<"level is "<<a.level<<endl;
+    // cout<<"health is private "<<a.getHealth()<<endl;
+
+    // //dynamic allocation
+    // Hero *b=new Hero;
+    // b->setLevel('A');
+    // (*b).setHealth(80);
+    // cout<<"level is "<<(*b).level<<endl;
+
+    // cout<<"health is "<<(*b).getHealth()<<endl;
+    // cout<<"health is "<<b->getHealth()<<endl;
 
     return 0;
 }

@@ -12,7 +12,7 @@ bool binarySearch(int *arr, int s, int e, int k)
     cout<<endl; 
     print(arr,s,e);
     int mid = s + (e - s) / 2;
-    cout<<"value of mid is "<<mid<<endl;
+    cout<<"value of mid is "<<arr[mid]<<endl;
     // base case
     // element not found
     if (s > e)

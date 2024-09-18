@@ -1,15 +1,7 @@
-Hero(int health)
-    {
-        this->health = health;
+ // Hero a;
+    // cout<<a.timeToComplete<<endl;
 
-        cout << "this->health " << this->health << endl;
-        cout << "this " << this << endl;
-        cout << "&health " << &health << endl;
-    }
-
-    Hero(int health, char level)
-    {
-        this->level = level;
-
-        this->health = health;
-    }
+    // Hero b;
+    // b.timeToComplete=10;
+    // cout<<a.timeToComplete<<endl;
+    // cout<<b.timeToComplete<<endl;

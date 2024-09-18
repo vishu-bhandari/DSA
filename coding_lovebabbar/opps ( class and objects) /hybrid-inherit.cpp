@@ -1,51 +1,48 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class a
+class A
 {
 public:
-    void func1()
+    void funcA()
     {
-        cout << "inside function 1" << endl;
-    }
-};
-class d{
-    public:
-    void func(){
-        cout<<"inside function d"<<endl;
+        cout << "inside class A" << endl;
     }
 };
 
-class b : public a
+class B : public virtual A
 {
 public:
-    void func2()
+    void funcB()
     {
-        cout << "inside function 2" << endl;
+        cout << "inside class B" << endl;
     }
 };
 
-class c : public a, public d
+class C :  public virtual  A, public B
 {
 public:
-    void func3()
+    void funcC()
     {
-        cout << "inside function 3" << endl;
+        cout << "inside class C" << endl;
     }
-
 };
 
 int main()
 {
-    a obj1;
-    obj1.func1();
 
-    b obj2;
-    obj2.func1();
-    obj2.func2();
+    A obj1;
+    obj1.funcA();
 
-    c obj3;
-    obj3.func1();
-    obj3.func3();
-    obj3.func();
+    B obj2;
+    obj2.funcA();
+    obj2.funcB();
+
+    C obj3;
+    obj3.funcA();
+    obj3.funcB();
+    obj3.funcC();
+
+
+    return 0;
 }

@@ -1,28 +1,22 @@
-#include<iostream> 
+#include<iostream>
 using namespace std;
 
-class a{
-
+class A{
     public:
-    void sayhello(){
+    void sayHello(){
         cout<<"hello vishu bhandari"<<endl;
     }
-    int  sayhello(char name){
-        cout<<"hello bhandari"<<endl;
-        return 1;
-    }
-    void sayhello(string name){
-        cout<<"hello " <<name<<endl;
+
+    void sayHello(string name){
+        cout<<"Hello: " <<name<<endl;
     }
 };
 
-
 int main(){
+    A obj;
+    obj.sayHello();
 
-    a obj;
-    obj.sayhello();
-    string name= "vishu";
-    obj.sayhello(name);
+
 
     return 0;
 }

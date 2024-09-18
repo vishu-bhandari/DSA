@@ -2,36 +2,35 @@
 using namespace std;
 
 class Animal{
-
     public:
     int age;
     int weight;
 
     public:
     void bark(){
-        cout<<"barking "<<endl;
+        cout<<"Barkking "<<endl;
     }
 };
 
-class human{
+class Human{
     public:
     string color;
-
     public:
     void speak(){
-        cout<<"speaking"<<endl;
+        cout<<"Speaking "<<endl;
     }
 };
-// Multiple Inheritance 
-class hybrid:public Animal,public human{
+
+//multiple inheritance 
+
+class Hybrid:public Animal,public Human{
 
 };
 
 int main(){
 
-    hybrid obj1;
-    obj1.speak();
+    Hybrid obj1;
     obj1.bark();
-
+    obj1.speak();
     return 0;
 }

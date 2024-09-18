@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-class student
+class Student
 {
 
 private:
@@ -14,15 +14,13 @@ public:
     {
         return this->age;
     }
-
 };
 
 int main()
-{   
-    student first;
+{
+    Student first;
 
-    cout<<"sab sahi chal raaha hai"<<endl;
-    
+    cout << "sab shai chl ra hai bhia " << endl;
 
     return 0;
 }

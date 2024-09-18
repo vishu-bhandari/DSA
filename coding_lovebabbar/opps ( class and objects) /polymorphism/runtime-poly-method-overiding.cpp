@@ -1,28 +1,27 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-class animal
-{
-public:
-    void speak()
-    {
-        cout << "speaking " << endl;
-    }
-};
-class dog : public animal
-{
-public:
-    void speak()
-    {
-        cout << "barking " << endl;
+class Animal{
+    public:
+
+    void speak(){
+        cout<<"speaking "<<endl;
+
     }
 };
 
-int main()
-{
+class Dog:public Animal{
+    public:
+    void speak(){
+        cout<<"barking"<<endl;
+    }
+};
 
-    dog obj;
-    obj.speak();
+int main(){
+    Dog obj1;
+    obj1.speak();
+
 
     return 0;
+
 }

@@ -1,52 +1,54 @@
 #include <iostream>
 using namespace std;
 
-class node
+class Node
 {
 public:
     int data;
-    // pointer of node type
-    node *next;
+    Node *next;
 
-    // constructor
-    node(int data)
+
+    //constructor
+    Node(int data)
     {
         this->data = data;
         this->next = NULL;
     }
-    // destructor
-    ~node()
-    {
-        int value = this->data;
-        // memory free
-        if (this->next != NULL)
-        {
+
+    //destructor
+    ~Node(){
+        int value=this->data;
+
+        //memory free 
+
+        if(this->next!=NULL){
             delete next;
-            this->next = NULL;
+            next=NULL;
         }
-        cout << "memory is free for node with data " << value << endl;
+        cout<<"memory is free for node with data "<<value<<endl;
     }
 };
 
-void insertAtHead(node *&head, int d)
+void InsertAtHead(Node *&head, int d)
 {
-    // new node create
-    node *temp = new node(d);
+
+    // new node creation
+    Node *temp = new Node(d);
+
     temp->next = head;
     head = temp;
 }
 
-void insertAtTail(node *&tail, int d)
+void InserAtTail(Node *&tail, int d)
 {
-    // new node create
-    node *temp = new node(d);
+    Node *temp = new Node(d);
     tail->next = temp;
     tail = temp;
 }
 
-void print(node *&head)
+void print(Node *&head)
 {
-    node *temp = head;
+    Node *temp = head;
     while (temp != NULL)
     {
         cout << temp->data << " ";
@@ -55,115 +57,104 @@ void print(node *&head)
     cout << endl;
 }
 
-void insertAtPosition(node *&tail, node *&head, int position, int d)
+void InsertAtPosition(Node *&tail, Node *&head, int position, int d)
 {
+
+    Node *temp = head;
+
     // insert at start
     if (position == 1)
     {
-        insertAtHead(head, d);
+        InsertAtHead(head, d);
         return;
     }
 
-    node *temp = head;
     int count = 1;
     while (count < position - 1)
     {
         temp = temp->next;
         count++;
     }
-
     // inserting at last position
     if (temp->next == NULL)
     {
-        insertAtTail(tail, d);
+        InserAtTail(tail, d);
         return;
     }
-
-    // creating a node for d
-    node *nodeToInsert = new node(d);
+    Node *nodeToInsert = new Node(d);
     nodeToInsert->next = temp->next;
     temp->next = nodeToInsert;
 }
 
-void deleteNode(int position, node *&head)
+void deleteNode(int position, Node *&head,Node *&tail)
 {
-    // deleting start node
+    // deleting the start node
+
     if (position == 1)
     {
-        node *temp = head;
+        Node *temp = head;
         head = head->next;
         // memory free start node
-        temp->next = NULL;
+        temp->next=NULL;
         delete temp;
     }
     else
     {
-        // deleting any middle node or last node
-        node *curr = head;
-        node *previous = NULL;
 
-        int count = 1;
-        while (count < position)
-        {
-            previous = curr;
-            curr = curr->next;
-            count++;
+        // deleing any middle or last node
+        Node *current=head;
+        Node* previous=NULL;
+
+        int cnt=1;
+
+        while(cnt<position){
+            previous=current;
+            current=current->next;
+            cnt++;
+
+          
         }
-        previous->next = curr->next;
-        curr->next = NULL;
-        delete curr;
-    }
-}
+          previous->next=current->next;
 
-bool iscircularList(node* head){
-    //empty list 
-    if(head==NULL){
-        return true;
-    }
-    node* temp=head->next;
-    while(temp!=NULL && temp!=head){
-        temp=temp->next;
-    }
-    if(temp==head){
-        return true;
-    }else{
-        return false;
+          //pointing the tail to last position 
+        if(current->next==NULL){
+            tail=previous;
+        }
+            current->next=NULL;
+            delete current;
+
+        
     }
 }
 
 int main()
 {
-    // create a new node
-    node *node1 = new node(10);
+    // created a node
+    Node *node1 = new Node(10);
     // cout << node1->data << endl;
     // cout << node1->next << endl;
 
-    // head pointed to node1
-    node *head = node1;
-    node *tail = node1;
+    // head pointed to node 1
+    Node *head = node1;
+    Node *tail = node1;
     print(head);
 
-    insertAtTail(tail, 12);
+    InserAtTail(tail, 12);
+    print(head);
+    InserAtTail(tail, 15);
     print(head);
 
-    insertAtTail(tail, 15);
-    print(head);
-
-    insertAtPosition(tail, head, 4, 22);
+    InsertAtPosition(tail, head, 4, 89);
     print(head);
 
     cout << "head " << head->data << endl;
-    cout << "tail " << tail->data << endl;
+    cout << " tail " << tail->data << endl;
 
-    deleteNode(1, head);
+    deleteNode(1,head,tail);
     print(head);
 
-    if(iscircularList(head)){
-        cout<<"linked list is circular in nature ";
-    }else{
-        cout<<"linked list is not circular in nature";
-    }
-
+    cout << "head " << head->data << endl;
+    cout << " tail " << tail->data << endl;
 
     return 0;
 }

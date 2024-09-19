@@ -1,2 +1,2 @@
- insertAtHead(head,11);
-    print(head);
+ insertNode(tail, 3, 5);
+    print(tail);

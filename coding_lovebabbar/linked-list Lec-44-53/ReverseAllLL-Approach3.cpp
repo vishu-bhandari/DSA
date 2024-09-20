@@ -1,74 +1,75 @@
 #include<iostream>
 using namespace std;
 
+
 class Node{
     public:
     int data;
-    Node* next;
+    Node *next;
 
     Node(int data){
         this->data=data;
         this->next=NULL;
-    }   
+    }
+
+
 };
 
-Node* reverse(Node* &head){
 
-    Node* prev=NULL;
-    Node* curr=head;
-
-    Node * forward=NULL;
-
-    if(head==NULL || head->next==NULL){
-        return head;
-    }
-
-    while(curr!=NULL){
-  forward=curr->next;
-    curr->next=prev;
-    prev=curr;
-    curr=forward;
-    }
-    return prev;
-
-}
-
-void InsertAtHead(Node* &head,int data){
-
+void insertAtHead(Node* &head,int data){
     Node *temp=new Node(data);
 
     temp->data=data;
     temp->next=head;
     head=temp;
-
 }
 
 void print(Node* &head){
-
     Node* temp=head;
+
     while(temp!=NULL){
         cout<<temp->data<<" ";
         temp=temp->next;
     }cout<<endl;
-    
+}
+
+Node* reverse(Node* &head){
+
+    //base case 
+    if(head==NULL || head->next==NULL ){
+        return head;
+    }
+
+    Node* chotaHead=reverse(head->next);
+    head->next->next=head;
+    head->next=NULL;
+
+    return chotaHead;
 
 }
+
 
 int main(){
 
     Node *node1=new Node(10);
-    Node *head=node1;
+    Node* head=node1;
 
-    InsertAtHead(head,20);
+    insertAtHead(head,11);
     print(head);
-    InsertAtHead(head,30);
+    insertAtHead(head,12);
     print(head);
-    InsertAtHead(head,40);
+    insertAtHead(head,13);
     print(head);
-    InsertAtHead(head,50);
+    insertAtHead(head,14);
     print(head);
+   
 
+    Node* curr=head;
+    Node* prev=NULL;
+
+    cout<<"this is the reversed linked list"<<endl;
     head=reverse(head);
+    
     print(head);
 
     return 0;

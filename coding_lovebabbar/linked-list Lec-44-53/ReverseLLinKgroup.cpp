@@ -33,21 +33,21 @@ void print(Node* &head){
     }cout<<endl;
 }
 
-void ReverseK(Node* &head,int k){
+Node* ReverseK(Node* &head,int k){
 
     int size=0;
 
     Node *temp=head;
-    if(temp!=NULL){
+    while(temp!=NULL){
         size++;
         temp=temp->next;
     }
     if(size<k){
-        print(head) ;
+        return head ;
     }
 
     if(head==NULL ){
-       print(head);
+       return head;
     }
 
     Node* prev=NULL;
@@ -59,10 +59,16 @@ void ReverseK(Node* &head,int k){
         next=curr->next;
         curr->next=prev;
         prev=curr;
-        next=curr;
+        curr=next;
         count++;
     }
-    print(prev);
+
+    //recursive call 
+    if(next!=NULL){
+        head->next=ReverseK(next,k);
+    }
+
+   return prev;
 }
 
 
@@ -73,17 +79,19 @@ int main(){
     Node* head=node1;
 
     insertAtHead(head,11);
-    print(head);
+    
     insertAtHead(head,12);
-    print(head);
+   
     insertAtHead(head,13);
-    print(head);
+   
     insertAtHead(head,14);
     print(head);
    
     int k=2;
-
-    ReverseK(head,k);
+    cout<<"this is the reversed linked list with k = "<<k<<endl;
+    head=ReverseK(head,k);
+    print(head);
+   
    
 
     return 0;

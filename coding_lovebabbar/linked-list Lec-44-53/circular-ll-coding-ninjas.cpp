@@ -110,12 +110,15 @@ void deletenode(node *&tail, int value)
     }
 }
 
-bool iscircularList(node* head){
+
+bool iscircularList(node * head){
+
     //empty list 
     if(head==NULL){
         return true;
     }
-    node* temp=head->next;
+    node *temp=head->next;
+
     while(temp!=NULL && temp!=head){
         temp=temp->next;
     }
@@ -125,6 +128,7 @@ bool iscircularList(node* head){
         return false;
     }
 }
+
 
 int main()
 {
@@ -136,6 +140,8 @@ int main()
 
     insertnode(tail, 3, 5);
     print(tail);
+
+    
 
     // insertnode(tail, 5, 7);
     // print(tail);

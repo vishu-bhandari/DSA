@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#include<map>
+#include <map>
 
 class node
 {
@@ -111,48 +111,82 @@ void deletenode(node *&tail, int value)
     }
 }
 
+bool iscircularList(node *head)
+{
 
-bool iscircularList(node * head){
-
-    //empty list 
-    if(head==NULL){
+    // empty list
+    if (head == NULL)
+    {
         return true;
     }
-    node *temp=head->next;
+    node *temp = head->next;
 
-    while(temp!=NULL && temp!=head){
-        temp=temp->next;
+    while (temp != NULL && temp != head)
+    {
+        temp = temp->next;
     }
-    if(temp==head){
+    if (temp == head)
+    {
         return true;
-    }else{
+    }
+    else
+    {
         return false;
     }
 }
 
-bool detectLoop(node * head){
-    if(head==NULL){
-        return false ;
+bool detectLoop(node *head)
+{
+    if (head == NULL)
+    {
+        return false;
     }
 
-    map<node*,bool> visited;
+    map<node *, bool> visited;
 
-    node* temp=head;
+    node *temp = head;
 
-    while(temp!=NULL){
+    while (temp != NULL)
+    {
 
-        //cycle is present 
-        if(visited[temp]==true){
-            cout<<"present on which element: "<<temp->data<<endl;
+        // cycle is present
+        if (visited[temp] == true)
+        {
+            cout << "present on which element: " << temp->data << endl;
             return true;
         }
-        visited[temp]=true;
-        temp=temp->next;
-
+        visited[temp] = true;
+        temp = temp->next;
     }
     return 0;
 }
 
+node *floydDetectLoop(node *head)
+{
+    if (head == NULL)
+    {
+        return NULL;
+    }
+    node *slow = head;
+    node *fast = head;
+
+    while (slow != NULL && fast != NULL)
+    {
+        fast = fast->next;
+        if (fast != NULL)
+        {
+            fast = fast->next;
+        }
+        slow = slow->next;
+
+        if (fast == slow)
+        {   
+            cout<<"present at which position :"<<slow->data<<endl;
+            return slow;
+        }
+    }
+    return NULL;
+}
 
 int main()
 {
@@ -168,20 +202,35 @@ int main()
     print(tail);
     insertnode(tail, 3, 4);
     print(tail);
-    
-    
 
- 
-    if(iscircularList(tail)){
-        cout<<"linked list is circular in nature ";
-    }else{
-        cout<<"linked list is not circular in nature";
-    }cout<<endl;
+    if (iscircularList(tail))
+    {
+        cout << "linked list is circular in nature ";
+    }
+    else
+    {
+        cout << "linked list is not circular in nature";
+    }
+    cout << endl;
 
-    if(detectLoop(tail)){
-        cout<<"loop is present  mast ";
-    }else{
-        cout<<"loop is not present ";
+    if (detectLoop(tail))
+    {
+        cout << "loop is present  mast ";
+    }
+    else
+    {
+        cout << "loop is not present ";
+    }
+    cout << endl;
+
+
+    if (floydDetectLoop(tail) != NULL)
+    {
+        cout << "loop is present  mast ";
+    }
+    else
+    {
+        cout << "loop is not present ";
     }
 
     return 0;

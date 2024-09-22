@@ -7,7 +7,6 @@ public:
     int data;
     node *next;
 
-    // constructor
     node(int d)
     {
         this->data = d;
@@ -21,16 +20,14 @@ void insertNode(node *&tail, int d)
 
     if (tail == NULL)
     {
-        // Empty list
         tail = newNode;
-        newNode->next = tail; // Circular link
+        newNode->next = tail;
     }
     else
     {
-        // Non-empty list
-        newNode->next = tail->next; // Insert after tail
+        newNode->next = tail->next;
         tail->next = newNode;
-        tail = newNode; // Update tail
+        tail = newNode;
     }
 }
 
@@ -42,7 +39,7 @@ void print(node *tail)
         return;
     }
 
-    node *temp = tail->next; // Start from the head (tail->next)
+    node *temp = tail->next;
 
     do
     {
@@ -68,10 +65,10 @@ bool floydDetectLoop(node *head)
 
         if (slow == fast)
         {
-            return true; // Loop detected
+            return true;
         }
     }
-    return false; // No loop
+    return false;
 }
 
 node *getStartingNode(node *head)
@@ -82,7 +79,6 @@ node *getStartingNode(node *head)
     node *slow = head;
     node *fast = head;
 
-    // Detect loop using Floyd's algorithm
     while (fast != NULL && fast->next != NULL)
     {
         slow = slow->next;
@@ -92,11 +88,9 @@ node *getStartingNode(node *head)
             break;
     }
 
-    // No loop detected
     if (slow != fast)
         return NULL;
 
-    // Find the start of the loop
     slow = head;
     while (slow != fast)
     {
@@ -104,57 +98,47 @@ node *getStartingNode(node *head)
         fast = fast->next;
     }
 
-    return slow; // Start of the loop
+    return slow;
 }
 
-void removeLoop(node *head)
+node *removeLoop(node *head)
 {
-    if (head == NULL)
-        return;
+    if( head == NULL)
+        return NULL;
 
-    node *startOfLoop = getStartingNode(head);
-    if (startOfLoop == NULL)
-        return; // No loop
+    node* startOfLoop = getStartingNode(head);
+    
+    if(startOfLoop == NULL)
+        return head;
+    
+    node* temp = startOfLoop;
 
-    node *temp = startOfLoop;
+    while(temp -> next != startOfLoop) {
+        temp = temp -> next;
+    } 
 
-    // Traverse till the last node in the loop
-    while (temp->next != startOfLoop)
-    {
-        temp = temp->next;
-    }
-
-    // Break the loop
-    temp->next = NULL;
+    temp -> next = NULL;
+    return head;
 }
-
 int main()
 {
     node *tail = NULL;
 
-    // Inserting values: 10 -> 12 -> 15 -> 22
     insertNode(tail, 10);
     insertNode(tail, 12);
     insertNode(tail, 15);
     insertNode(tail, 22);
 
-    // Creating the loop manually: make 22 point to 12
     node *temp = tail;
 
-    // Move to the node with value 22
-    while (temp->next != tail->next) // tail->next is the head (node with value 10)
+    while (temp->next != tail->next)
     {
         temp = temp->next;
     }
 
-    // Move to node with value 12
-    node *loopStart = tail->next->next; // This points to node with value 12
-    temp->next = loopStart; // Create loop from 22 to 12
+    node *loopStart = tail->next->next;
+    temp->next = loopStart;
 
-    // Print the list (should loop infinitely if not checked)
-    // print(tail); // Comment this out as it will cause infinite loop
-
-    // Detect loop
     if (floydDetectLoop(tail->next))
     {
         cout << "Loop detected." << endl;
@@ -164,18 +148,18 @@ int main()
         cout << "No loop detected." << endl;
     }
 
-    // Find and print the start of the loop
     node *loopNode = getStartingNode(tail->next);
     if (loopNode != NULL)
     {
         cout << "Loop starts at node with value: " << loopNode->data << endl;
     }
 
-    // Remove the loop
-    removeLoop(tail->next);
-
-    // Print the list after removing the loop
     print(tail);
+
+
+    cout<<removeLoop(tail)<<endl;
+    
+  
 
     return 0;
 }

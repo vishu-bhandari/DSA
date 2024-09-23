@@ -1,3 +1,8 @@
+
+
+//HOMEWORK
+
+
 #include<iostream>
 using namespace std;
 
@@ -35,29 +40,7 @@ void print(Node* &head){
 
 }
 
-Node* deleteDuplicates(Node* head){
-    //empty list 
-    if(head==NULL){
-        return NULL;
-    }
 
-    Node* curr=head;
-
-    while(curr->next!=NULL){
-
-        if(curr->data==curr->next->data){
-
-            Node* next_next=curr->next->next;
-            Node* temp=curr->next;
-            delete(temp);
-            curr->next=next_next;
-
-        }else{
-            curr=curr->next;
-        }
-    }
-    return head;
-}
 
 int main(){
 
@@ -73,8 +56,7 @@ int main(){
     InsertAtHead(head,3);
     print(head);
 
-    deleteDuplicates(head);
-    print(head);
+    
 
     return 0;
 }

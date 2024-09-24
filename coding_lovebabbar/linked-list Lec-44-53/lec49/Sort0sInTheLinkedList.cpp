@@ -32,8 +32,9 @@ void print(node * &head){
     }
 }
 
-node* SortList(node* &head){
+node* SortList(node * &head){
     int zeroCount=0;
+
     int oneCount=0;
     int twoCount=0;
 
@@ -42,14 +43,14 @@ node* SortList(node* &head){
     while(temp!=NULL){
         if(temp->data==0){
             zeroCount++;
-        }
-        else if(temp->data==1){
+        }else if(temp->data==1){
             oneCount++;
         }else if(temp->data==2){
             twoCount++;
         }
         temp=temp->next;
     }
+
 
     temp=head;
     while(temp!=NULL){

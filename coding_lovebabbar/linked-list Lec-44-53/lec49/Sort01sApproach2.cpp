@@ -32,7 +32,56 @@ void print(node * &head){
     }
 }
 
+void populate(node * &tail,node * curr){
+    tail->next=curr;
+    tail=curr;
+}
 
+node* SortList(node *head){
+
+    node* zeroHead=new node(-1);
+    node * zeroTail=zeroHead;
+    node* oneHead=new node(-1);
+    node* oneTail=oneHead;
+    node* twoHead=new node(-1);
+    node* twoTail=twoHead;
+
+
+    node* curr=head;
+
+    while(curr!=NULL){
+        int value=curr->data;
+        if(value==0){
+           populate(zeroTail,curr);
+        }else if(value==1){
+            populate(oneTail,curr);
+        }else if(value==2){
+            populate(twoTail,curr);
+        }
+
+        curr=curr->next;
+    }
+
+    //merge 3 sublist 
+    if(oneHead->next!=NULL){
+        zeroTail->next=oneHead->next;
+    }else{
+        oneTail->next=twoHead->next;
+    }
+
+    oneTail->next=twoHead->next;
+    twoTail->next=NULL;
+
+
+    head=zeroHead->next;
+    delete zeroHead;
+    delete oneHead;
+    delete twoHead;
+    return head;
+
+
+
+}
 
 int main(){
     node* node1=new node(0);
@@ -43,7 +92,9 @@ int main(){
     insertNode(head,1);
     insertNode(head,0);
     print(head);
-    
+    cout<<endl;
+    SortList(head);
+    print(head);
 
 
     return 0;

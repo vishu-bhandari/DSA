@@ -23,7 +23,7 @@ public:
         arr=new int[s];
     }
     
-    // Push in stack 1.
+    // Push in stack 1..
     void push1(int num) {
         // Write your code here.
         //atleast ek empty space toh present hai 

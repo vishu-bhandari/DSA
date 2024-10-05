@@ -14,7 +14,7 @@ class TwoStack {
 
 public:
 
-    // Initialize TwoStack.............
+    // Initialize TwoStack................
     TwoStack(int s) {
         // Write your code here.
         this->size=s;

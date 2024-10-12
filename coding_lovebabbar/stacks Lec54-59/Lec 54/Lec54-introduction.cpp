@@ -62,7 +62,7 @@ int main()
 
     stack st(5);
 
-    // stack<int> s;
+    // stack<int> s;....
 
     // s.push(2);
     // s.push(3);

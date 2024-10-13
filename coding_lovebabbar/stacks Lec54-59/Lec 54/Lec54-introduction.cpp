@@ -62,8 +62,19 @@ int main()
     st.push(23);
     st.push(24);
     st.push(25);
-
+    
+    
     cout<<st.peak()<<endl;
+    st.pop();
+    cout<<st.peak()<<endl;
+    st.pop();
+    cout<<st.peak()<<endl;
+
+    if(st.isEmpty()){
+        cout<<"stack khaali hia "<<endl;
+    }else{
+        cout<<"nahi bhia "<<endl;
+    }
 
 
     // stack<int> s;

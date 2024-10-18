@@ -1,10 +1,11 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-#include<stack>
+#include <stack>
 
-void insertAtBottom(stack<int>& s,int element){
-    //base case 
-      if (s.empty())
+void insertAtBottom(stack<int> &s, int element)
+{
+    // base case
+    if (s.empty())
     {
         s.push(element);
         return;
@@ -16,24 +17,25 @@ void insertAtBottom(stack<int>& s,int element){
     s.push(num);
 }
 
-void ReverseStack(stack<int>& s){
-    //base case 
+void ReverseStack(stack<int> &s)
+{
+    // base case
 
-    if(s.empty()){
-        return ;
+    if (s.empty())
+    {
+        return;
     }
-    int num=s.top();
+    int num = s.top();
     s.pop();
 
-    //recursive call
+    // recursive call
     ReverseStack(s);
 
-    insertAtBottom(s,num);
+    insertAtBottom(s, num);
 }
 
-
-int main(){
-
+int main()
+{
 
     stack<int> s;
 
@@ -41,14 +43,13 @@ int main(){
     s.push(2);
     s.push(3);
 
-
     ReverseStack(s);
 
-    while(!s.empty()){
-        cout<<s.top()<<" ";
+    while (!s.empty())
+    {
+        cout << s.top() << " ";
         s.pop();
     }
-    
 
     return 0;
 }
